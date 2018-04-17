@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerthemeUCAS}[2017/08/29]
+\ProvidesPackage{beamerthemeUCAS}[2018/04/17]
 \mode<presentation>
 \RequirePackage{etoolbox}
 \DeclareOptionBeamer{locale}{\def\ucasbeamer@option@locale{#1}}
@@ -41,49 +41,6 @@
     \newfontfamily\ucasbeamer@temp@fontname
       [NFSSFamily=PTSansCaption-TLF]{PT Sans Caption}
   }{}
-\fi
-\ifucasbeamer@option@fonts
-  \RequirePackage{PTSans}
-  \RequirePackage{PTMono}
-  \@ifpackageloaded{fontspec}{
-    \newfontfamily\ucasbeamer@temp@fontname
-      [NFSSFamily=PTSans-TLF]{PT Sans}
-    \newfontfamily\ucasbeamer@temp@fontname
-      [NFSSFamily=PTMono-TLF]{PT Mono}
-  }{}
-\fi
-\newif\ifucasbeamer@scaling@enabled
-\ifucasbeamer@option@scaling
-  \def\ucasbeamer@scaling@family@basic{PTSans-TLF}
-  \def\ucasbeamer@scaling@family@caption{PTSansCaption-TLF}
-  \ucasbeamer@scaling@enabledtrue
-  \def\ucasbeamer@scaling@apply #1 (#2 -> #3){%
-    \expandafter\let\expandafter\ucasbeamer@temp@fontsize
-      \csname #1\endcsname
-    \expandafter\let\csname ucasbeamer@original@#1\endcsname
-      \ucasbeamer@temp@fontsize
-    \expandafter\def\csname #1\endcsname{%
-      \ifucasbeamer@scaling@enabled
-        \expandafter\ifx\csname ucasbeamer@scaling@family@#2\endcsname
-          \sfbasic\expandafter\let\expandafter\sfdefault
-          \csname ucasbeamer@scaling@family@#3\endcsname
-        \fi
-        \expandafter\ifx\csname ucasbeamer@scaling@family@#2\endcsname
-          \f@family\expandafter\fontfamily
-          \csname ucasbeamer@scaling@family@#3\endcsname\selectfont
-        \fi
-      \fi
-      \csname ucasbeamer@original@#1\endcsname}}
-  \ucasbeamer@scaling@apply Huge         (caption -> basic)
-  \ucasbeamer@scaling@apply huge         (caption -> basic)
-  \ucasbeamer@scaling@apply LARGE        (caption -> basic)
-  \ucasbeamer@scaling@apply Large        (caption -> basic)
-  \ucasbeamer@scaling@apply large        (caption -> basic)
-  \ucasbeamer@scaling@apply normalsize   (caption -> basic)
-  \ucasbeamer@scaling@apply small        (caption -> basic)
-  \ucasbeamer@scaling@apply footnotesize (basic -> caption)
-  \ucasbeamer@scaling@apply scriptsize   (basic -> caption)
-  \ucasbeamer@scaling@apply tiny         (basic -> caption)
 \fi
 \def\ucasbeamer@option@locale@logo{\ucasbeamer@option@locale}
 \def\ucasbeamer@option@locale@label{\ucasbeamer@option@locale}
