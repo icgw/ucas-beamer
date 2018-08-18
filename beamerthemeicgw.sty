@@ -1,0 +1,217 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeicgw}[2018/08/17]
+
+\mode<presentation>
+
+\DeclareOptionBeamer{label}{\def\icgwbeamer@option@label{#1}}
+\ExecuteOptionsBeamer{label = UCAS}
+
+\DeclareOptionBeamer{logo}{\def\icgwbeamer@option@logo{#1}}
+\ExecuteOptionsBeamer{logo = AMSS}
+
+% 设置字体
+\RequirePackage{PTSans}
+\@ifpackageloaded{fontspec}{
+  \newfontfamily\ucasbeamer@temp@fontname
+    [NFSSFamily = PTSans-TLF]{PT Sans}
+}{}
+
+\ProcessOptionsBeamer
+
+% 定义标志 (label) 和 徽章 (logo) 的文件夹路径
+\def\icgwbeamer@pathname@label{label/}
+\def\icgwbeamer@pathname@logo{logo/}
+
+% 定义标志及徽章的文件名
+\def\icgwbeamer@filename@label{%
+    \icgwbeamer@pathname@label \icgwbeamer@option@label%
+}
+\def\icgwbeamer@filename@logo{%
+    \icgwbeamer@pathname@logo \icgwbeamer@option@logo%
+}
+
+% --------------------------------- 预设长度 --------------------------------- %
+
+% 定义边界间隔距离
+\newlength\icgwbeamer@length@margin
+\icgwbeamer@length@margin = 14pt
+
+% 定义页脚占据的高度
+\newlength\icgwbeamer@length@footlineheight
+\icgwbeamer@length@footlineheight = 8pt
+
+% 定义页脚与底边界的距离
+\newlength\icgwbeamer@length@footlinebottompadding
+\icgwbeamer@length@footlinebottompadding = 6pt
+
+% 定义徽章的最大宽度、最大高度
+\newlength\icgwbeamer@length@logomaxwidth
+\icgwbeamer@length@logomaxwidth = 72pt
+\newlength\icgwbeamer@length@logomaxheight
+\icgwbeamer@length@logomaxheight = 36pt
+
+% 定义展示页面标题与上边界的间隔
+\newlength\icgwbeamer@length@toppadding
+\icgwbeamer@length@toppadding = 24pt
+
+% 定义扉页 (title page) 左上角标志的高度
+\newlength\icgwbeamer@length@labelheight@titlepage
+\icgwbeamer@length@labelheight@titlepage = 42pt
+
+% 定义扉页之后 (Not title page) 左上角标志的高度
+\newlength\icgwbeamer@length@labelheight
+\icgwbeamer@length@labelheight = 28pt
+
+% --------------------------------- 预设颜色 --------------------------------- %
+
+\definecolor{icgwbeamer@base}{RGB}{0, 64, 152} % 底色：孔雀蓝
+\definecolor{icgwbeamer@graybase}{RGB}{240, 240, 240}
+\definecolor{icgwbeamer@gray}{RGB}{130, 130, 130}
+\definecolor{icgwbeamer@orange}{RGB}{240,140,0}
+
+
+% -------------------------------- 自定义设置 -------------------------------- %
+% 使用页眉（章节题目）
+\useoutertheme{infolines}
+% 设置页码边距
+\setbeamersize{%
+  text margin left=\icgwbeamer@length@margin,
+  text margin right=\icgwbeamer@length@margin}
+
+
+% 设置展示页面的标题与副标题
+\setbeamertemplate{frametitle}{%
+  \vskip\icgwbeamer@length@toppadding
+  \vtop{{%
+      \usebeamerfont{frametitle}{\insertframetitle}%
+      \ifx\insertframesubtitle\@empty\else\\
+        \usebeamerfont{framesubtitle}{\insertframesubtitle}
+      \fi}
+    \vfill}}
+
+% 取消底部的导航栏
+\setbeamertemplate{navigation symbols}{}
+
+% 设置背景
+\setbeamertemplate{background canvas}{%
+    \ifnum\value{page} = 1
+        \let\icgwbeamer@temp@length\icgwbeamer@length@labelheight@titlepage
+    \else
+        \let\icgwbeamer@temp@length\icgwbeamer@length@labelheight
+    \fi
+    \leavevmode\hskip\icgwbeamer@length@margin
+    \includegraphics[height = \icgwbeamer@temp@length]%
+    {\icgwbeamer@filename@label}%
+}
+
+% 设置页脚的信息（姓名、题目、日期、页码）
+\setbeamertemplate{footline}{%
+  \hskip\icgwbeamer@length@margin
+  \usebeamercolor[fg]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \ \lower2pt\hbox{\Large$\cdot$}\
+  \usebeamercolor[fg]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \ \lower2pt\hbox{\Large$\cdot$}\
+  \usebeamercolor[fg]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate
+  \hfill
+  \insertframenumber{} / \inserttotalframenumber
+  \hskip\icgwbeamer@length@margin
+  \vrule width 0pt height \icgwbeamer@length@footlineheight
+         depth \icgwbeamer@length@footlinebottompadding}
+
+% 设置扉页
+\setbeamertemplate{title page}{%
+    \vfill
+    \begin{center}
+        {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}%
+        \smallskip
+    
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}%
+        \vfill
+    
+        {\usebeamerfont{author} \insertauthor}%
+        \medskip
+
+        {\usebeamerfont{institute} \insertinstitute}%
+        \medskip
+
+        \includegraphics%
+        [      
+            width = \icgwbeamer@length@logomaxwidth,
+            height = \icgwbeamer@length@logomaxheight, 
+            keepaspectratio
+        ]{\icgwbeamer@filename@logo}%
+        \vfill
+
+        {\usebeamerfont{date}\centering \insertdate}%
+    \end{center}
+}
+
+% 设置结构 (structure) 的字体及前景颜色
+\setbeamerfont{structure}{series = \bfseries}
+\setbeamercolor{structure}{fg = icgwbeamer@gray}
+
+% 设置警示 (alerted) 的字体及前景颜色
+\setbeamerfont{alerted text}{series = \bfseries}
+\setbeamercolor{alerted text}{fg = icgwbeamer@orange}
+
+% 设置题目 (title) 的字体、大小及颜色
+\setbeamerfont{title}{size = \Large, series = \bfseries}
+\setbeamercolor{title}{fg = icgwbeamer@base}
+\setbeamerfont{title in head/foot}{size = \tiny, series = \bfseries}
+\setbeamercolor{title in head/foot}{parent = structure}
+
+% 设置作者的字体及大小
+\setbeamerfont{author}{series = \bfseries, size = \small}
+\setbeamerfont{author in head/foot}{size = \tiny, series = \bfseries}
+\setbeamercolor{author in head/foot}{parent = structure}
+
+% 设置日期的字体大小
+\setbeamerfont{date}{size = \footnotesize}
+\setbeamerfont{date in head/foot}{size = \tiny, series = \bfseries}
+\setbeamercolor{date in head/foot}{parent=structure}
+
+% 设置项目符号 (item) 为方形 (square)
+\setbeamertemplate{itemize items}[square]
+
+% 设置 脚注 (footnote) 的字体大小、脚注的标号属性
+\setbeamerfont{footnote}{size = \footnotesize}
+\setbeamercolor{footnote mark}{parent = structure}
+
+% 设置幻灯片标题、副标题、章节、子章节的字体及大小
+\setbeamerfont{frametitle}{size = \Large, series = \bfseries}
+\setbeamercolor{frametitle}{parent = title}
+
+\setbeamerfont{framesubtitle}{size = \large, series = \bfseries}
+\setbeamercolor{framesubtitle}{parent = subtitle}
+
+\setbeamerfont{section in head/foot}{parent = structure}
+\setbeamercolor{section in head/foot}{parent = structure}
+
+\setbeamerfont{subsection in head/foot}{parent = normal text}
+\setbeamercolor{subsection in head/foot}{parent = structure}
+
+% 设置展示块是否有阴影显示
+\setbeamertemplate{blocks}[rounded][shadow = true]
+
+% 设置展示块，一般块、示例块、警醒块 (block title) 的标题颜色，前景色与背景色
+\setbeamercolor{block title}{fg = white, bg = icgwbeamer@base}
+\setbeamercolor{block title example}{%
+  use = alerted text, fg = white, bg = icgwbeamer@gray}
+\setbeamercolor{block title alerted}{%
+  use = alerted text, fg = white, bg = icgwbeamer@orange}
+
+% 设置展示块内容的文本颜色、背景颜色
+\setbeamercolor{block body}{%
+  parent = normal text, use = block title,
+  bg = block title.bg!10!bg}
+\setbeamercolor{block body example}{%
+  parent = normal text, bg = icgwbeamer@graybase}
+\setbeamercolor{block body alerted}{%
+  parent = normal text, use = block title alerted,
+  bg = block title alerted.bg!10!bg}
+
+\mode<all>
+\endinput

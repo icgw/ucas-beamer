@@ -1,0 +1,135 @@
+\documentclass[]{beamer}
+
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+
+% \usetheme[label = UCAS, logo = UCAS]{icgw}
+\usetheme[]{icgw}
+
+\title[Short Presentation Title]{Full Presentation Title}
+\subtitle[Short Presentation Subtitle]{Full Presentation Subtitle}
+\author[G.W.\, CH]{Guowei Chen}
+\institute[AMSS, CAS]{Academy of Mathematics \& Systems Science, Chinese Academy of Sciences}
+\date{\today}
+\subject{Presentation Subject}
+\keywords{the, presentation, keywords}
+
+\begin{document}
+
+\begin{frame}[plain]
+	\maketitle
+\end{frame}
+
+\begin{frame}{Table of Contents}
+	\tableofcontents
+\end{frame}
+
+\section[Short Section 1 Name]{Full Section 1 Name}
+\subsection[Short Subsection 1 Name]{Full Subsection 1 Name}
+
+\begin{frame}{Frame Title}{Frame Subtitle}
+	plain text, \structure{page structure}, \alert{emphasis}
+	\begin{itemize}
+		\item a single-line bullet list item
+		\item a bullet list item that is quite long (in order to force a line break),
+		      which also contains \alert{emphasized text}
+		      \begin{itemize}
+			      \item a second-level list item
+			            \begin{itemize}
+				            \item a third-level list item
+			            \end{itemize}
+			            \alert{\item an emphasized second-level list item}
+		      \end{itemize}
+	\end{itemize}
+	\begin{enumerate}
+		\item a numbered list item
+		      \begin{enumerate}
+			      \item a second-level list item containing a math expression
+			            \[ E = mc^2 \]
+		      \end{enumerate}
+	\end{enumerate}
+\end{frame}
+
+\subsection[Short Subsection 2 Name]{Full Subsection 2 Name}
+
+\begin{frame}{Text Blocks}
+	text above a block
+	\begin{block}{Block}
+		text
+	\end{block}
+	\begin{exampleblock}{Example Block}
+		text
+	\end{exampleblock}
+	\begin{alertblock}{Emphasized Block}
+		text
+	\end{alertblock}
+	text below a block\footnote{a footnote with an \url{http://icgw.me}}
+\end{frame}
+
+\begin{frame}{Figures}
+	\begin{figure}
+		\includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{cow-black.mps}
+		\caption{A Holstein Friesian cow}
+	\end{figure}
+\end{frame}
+
+\subsection[Short Subsection 3 Name]{Full Subsection 3 Name}
+
+\begin{frame}{Tables}
+	\begin{table}
+		\begin{tabular}{llc}
+			First Name & Surname  & Year of Birth \\ \midrule
+			Albert     & Einstein & 1879          \\
+			Marie      & Curie    & 1867          \\
+			Thomas     & Edison   & 1847          \\
+		\end{tabular}
+		\caption{The great minds of the 19th century}
+	\end{table}
+\end{frame}
+
+\makeatletter
+\begin{frame}{Automatic Optical Scaling}
+	\begin{center}
+		\begin{tabular}{ll}
+			\Huge Huge                 & \Huge \structure{\f@size pt}         \\
+			\huge huge                 & \huge \structure{\f@size pt}         \\
+			\LARGE LARGE               & \LARGE \structure{\f@size pt}        \\
+			\Large Large               & \Large \structure{\f@size pt}        \\
+			\large large               & \large \structure{\f@size pt}        \\
+			\normalsize normalsize     & \normalsize \structure{\f@size pt}   \\[-0.95pt]
+			\small small               & \small \structure{\f@size pt}        \\[-1.95pt]
+			\footnotesize footnotesize & \footnotesize \structure{\f@size pt} \\[-2.95pt]
+			\scriptsize scriptsize     & \scriptsize \structure{\f@size pt}   \\[-4.95pt]
+			\tiny tiny                 & \tiny \structure{\f@size pt}
+		\end{tabular}
+	\end{center}
+\end{frame}
+\makeatother
+
+\begin{frame}{References}
+	\begin{thebibliography}{9}
+		\setbeamertemplate{bibliography item}[online]
+		\bibitem{} Online resouces
+
+		\setbeamertemplate{bibliography item}[book]
+		\bibitem{} Books
+
+		\setbeamertemplate{bibliography item}[article]
+		\bibitem{} Articles
+
+		\setbeamertemplate{bibliography item}[triangle]
+		\bibitem{} Triangle
+
+		\setbeamertemplate{bibliography item}[text]
+		\bibitem{} Text
+	\end{thebibliography}
+\end{frame}
+
+\begin{frame}[plain]
+	\vfill
+	\centerline{Thank you for your attention!}
+	\vfill\vfill
+\end{frame}
+
+\end{document}

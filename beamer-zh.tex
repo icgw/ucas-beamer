@@ -1,0 +1,135 @@
+\documentclass[]{beamer}
+
+\usepackage{ctex}
+\usepackage{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+
+% \usetheme[label = UCAS, logo = UCAS]{icgw}
+\usetheme[]{icgw}
+
+\title[主题缩写]{主题}
+\subtitle[副标题缩写]{副标题}
+\author[G.W.\, CH]{纯果味}
+\institute[AMSS, CAS]{中科院数学与系统科学研究院}
+\date{\today}
+\subject{展示主题}
+\keywords{展示，关键词}
+
+\begin{document}
+\begin{frame}[plain]
+	\maketitle
+\end{frame}
+
+\begin{frame}{目录}
+	\tableofcontents
+\end{frame}
+
+\section[第 1 章缩写标题]{第 1 章主标题}
+\subsection[第 1 节缩写标题]{第 1 节主标题}
+
+\begin{frame}{幻灯片标题}{幻灯片副标题}
+	平凡格式，\structure{列表格式}，\alert{强调格式}
+	\begin{itemize}
+		\item 第一级文本内容
+		\item 若该行文本内容十分长长长长长长长长长，则会被强制换行，
+		      这里也可以包含 \alert{需要强调的文本}
+		      \begin{itemize}
+			      \item 第二级文本内容
+			            \begin{itemize}
+				            \item 第三级文本内容
+			            \end{itemize}
+			            \alert{\item 第二级强调的文本内容}
+		      \end{itemize}
+	\end{itemize}
+	\begin{enumerate}
+		\item 带序号的文本内容
+		      \begin{enumerate}
+			      \item 第二级文本内容且包含数学公式
+			            \[ E = mc^2 \]
+		      \end{enumerate}
+	\end{enumerate}
+\end{frame}
+
+\subsection[第 2 节缩写标题]{第 2 节主标题}
+
+\begin{frame}{文本区块}
+	将文本放入区块内
+	\begin{block}{普通区块}
+		文本内容
+	\end{block}
+	\begin{exampleblock}{示例区块}
+		文本内容
+	\end{exampleblock}
+	\begin{alertblock}{强调区块}
+		文本内容
+	\end{alertblock}
+	给文本加脚注\footnote{这个脚注附有链接 \url{http://icgw.me}}
+\end{frame}
+
+\begin{frame}{图像}
+	\begin{figure}
+		\includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{cow-black.mps}
+		\caption{荷斯坦黑白花牛}
+	\end{figure}
+\end{frame}
+
+\subsection[第 3 节缩写标题]{第 3 节主标题}
+
+\begin{frame}{表格}
+	\begin{table}
+		\begin{tabular}{llc}
+			名称     & 姓氏     & 出生年份 \\ \midrule
+			阿尔伯特 & 爱因斯坦 & 1879     \\
+			玛丽     & 居里     & 1867     \\
+			托马斯   & 爱迪生   & 1847     \\
+		\end{tabular}
+		\caption{19世纪伟大的科学家}
+	\end{table}
+\end{frame}
+
+\makeatletter
+\begin{frame}{自定义字体大小}
+	\begin{center}
+		\begin{tabular}{ll}
+			\Huge  大大大大大字号  & \Huge \structure{\f@size pt}         \\
+			\huge  大大大大字号    & \huge \structure{\f@size pt}         \\
+			\LARGE 大大大字号      & \LARGE \structure{\f@size pt}        \\
+			\Large 大大字号        & \Large \structure{\f@size pt}        \\
+			\large 大字号          & \large \structure{\f@size pt}        \\
+			\normalsize 正常字号   & \normalsize \structure{\f@size pt}   \\[-0.95pt]
+			\small 小字号          & \small \structure{\f@size pt}        \\[-1.95pt]
+			\footnotesize 小小字号 & \footnotesize \structure{\f@size pt} \\[-2.95pt]
+			\scriptsize 小小小字号 & \scriptsize \structure{\f@size pt}   \\[-4.95pt]
+			\tiny 小小小小字号     & \tiny \structure{\f@size pt}
+		\end{tabular}
+	\end{center}
+\end{frame}
+\makeatother
+
+\begin{frame}{参考资料}
+	\begin{thebibliography}{9}
+		\setbeamertemplate{bibliography item}[online]
+		\bibitem{} 网络资源
+
+		\setbeamertemplate{bibliography item}[book]
+		\bibitem{} 书籍
+
+		\setbeamertemplate{bibliography item}[article]
+		\bibitem{} 文章
+
+		\setbeamertemplate{bibliography item}[triangle]
+		\bibitem{} 符号
+
+		\setbeamertemplate{bibliography item}[text]
+		\bibitem{} 文本
+	\end{thebibliography}
+\end{frame}
+
+\begin{frame}[plain]
+	\vfill
+	\centerline{谢谢！}
+	\vfill\vfill
+\end{frame}
+
+\end{document}
