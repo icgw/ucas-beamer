@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerthemeicgw}[2018/08/17]
+\ProvidesPackage{beamerthemeicgw}[2019/01/03]
 
 \mode<presentation>
 
@@ -9,12 +9,20 @@
 \DeclareOptionBeamer{logo}{\def\icgwbeamer@option@logo{#1}}
 \ExecuteOptionsBeamer{logo = AMSS}
 
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{booktabs}
+
 % 设置字体
-\RequirePackage{PTSans}
-\@ifpackageloaded{fontspec}{
-  \newfontfamily\ucasbeamer@temp@fontname
-    [NFSSFamily = PTSans-TLF]{PT Sans}
-}{}
+\@ifpackageloaded{ctex}
+ {  % 如果已加载 ctex
+	\setmainfont{Times New Roman} %设置 Times New Roman 为默认的英文字体  
+	\setCJKmainfont{SimSun}       %设置宋体为默认的中文字体
+ }
+ {  % 否则
+	\RequirePackage[english]{babel}
+	\RequirePackage{PTSans}
+	\RequirePackage[T1]{fontenc}
+ }
 
 \ProcessOptionsBeamer
 
@@ -68,7 +76,12 @@
 \definecolor{icgwbeamer@graybase}{RGB}{240, 240, 240}
 \definecolor{icgwbeamer@gray}{RGB}{130, 130, 130}
 \definecolor{icgwbeamer@orange}{RGB}{240,140,0}
+\definecolor{icgwbeamer@red}{RGB}{210, 26, 66}
+\definecolor{icgwbeamer@green}{RGB}{0, 127, 0}
 
+% -------------------------------- 自定义命令 -------------------------------- %
+\providecommand{\red}[1]{{\color{icgwbeamer@red}{#1}}}
+\providecommand{\green}[1]{{\color{icgwbeamer@green}{#1}}}
 
 % -------------------------------- 自定义设置 -------------------------------- %
 % 使用页眉（章节题目）
