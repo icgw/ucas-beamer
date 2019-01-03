@@ -1,17 +1,14 @@
-# latex-模板
+# ucas-beamer
+幻灯片模板
 
-下面是我常使用的一些 latex 模板。
+## 简介
+x
 
-##  ucas-beamer
+## [样例](beamer-zh.pdf)
 
-中国科学院大学幻灯片模板（非官方版）
+## [LaTeX.Online](https://latexonline.cc/) 在线编译
+[[中文版 PDF](https://latexonline.cc/compile?git=https://github.com/icgw/ucas-beamer&target=beamer-zh.tex&command=xelatex)]
 
------------------------------------------------------------------
 
-# latex-templates
-
-The following are my latex-templetes as usual.
-
-## ucas-beamer
-
-The beamertheme of University of Chinese Academy of Science (non-official version)
+### 使用方法
+x
