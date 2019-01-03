@@ -1,12 +1,12 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerthemeicgw}[2019/01/03]
+\ProvidesPackage{beamerthemeucas}[2019/01/03]
 
 \mode<presentation>
 
-\DeclareOptionBeamer{label}{\def\icgwbeamer@option@label{#1}}
+\DeclareOptionBeamer{label}{\def\ucasbeamer@option@label{#1}}
 \ExecuteOptionsBeamer{label = UCAS}
 
-\DeclareOptionBeamer{logo}{\def\icgwbeamer@option@logo{#1}}
+\DeclareOptionBeamer{logo}{\def\ucasbeamer@option@logo{#1}}
 \ExecuteOptionsBeamer{logo = AMSS}
 
 \RequirePackage[utf8]{inputenc}
@@ -27,74 +27,74 @@
 \ProcessOptionsBeamer
 
 % 定义标志 (label) 和 徽章 (logo) 的文件夹路径
-\def\icgwbeamer@pathname@label{label/}
-\def\icgwbeamer@pathname@logo{logo/}
+\def\ucasbeamer@pathname@label{label/}
+\def\ucasbeamer@pathname@logo{logo/}
 
 % 定义标志及徽章的文件名
-\def\icgwbeamer@filename@label{%
-    \icgwbeamer@pathname@label \icgwbeamer@option@label%
+\def\ucasbeamer@filename@label{%
+    \ucasbeamer@pathname@label \ucasbeamer@option@label%
 }
-\def\icgwbeamer@filename@logo{%
-    \icgwbeamer@pathname@logo \icgwbeamer@option@logo%
+\def\ucasbeamer@filename@logo{%
+    \ucasbeamer@pathname@logo \ucasbeamer@option@logo%
 }
 
 % --------------------------------- 预设长度 --------------------------------- %
 
 % 定义边界间隔距离
-\newlength\icgwbeamer@length@margin
-\icgwbeamer@length@margin = 14pt
+\newlength\ucasbeamer@length@margin
+\ucasbeamer@length@margin = 14pt
 
 % 定义页脚占据的高度
-\newlength\icgwbeamer@length@footlineheight
-\icgwbeamer@length@footlineheight = 8pt
+\newlength\ucasbeamer@length@footlineheight
+\ucasbeamer@length@footlineheight = 8pt
 
 % 定义页脚与底边界的距离
-\newlength\icgwbeamer@length@footlinebottompadding
-\icgwbeamer@length@footlinebottompadding = 6pt
+\newlength\ucasbeamer@length@footlinebottompadding
+\ucasbeamer@length@footlinebottompadding = 6pt
 
 % 定义徽章的最大宽度、最大高度
-\newlength\icgwbeamer@length@logomaxwidth
-\icgwbeamer@length@logomaxwidth = 72pt
-\newlength\icgwbeamer@length@logomaxheight
-\icgwbeamer@length@logomaxheight = 36pt
+\newlength\ucasbeamer@length@logomaxwidth
+\ucasbeamer@length@logomaxwidth = 72pt
+\newlength\ucasbeamer@length@logomaxheight
+\ucasbeamer@length@logomaxheight = 36pt
 
 % 定义展示页面标题与上边界的间隔
-\newlength\icgwbeamer@length@toppadding
-\icgwbeamer@length@toppadding = 24pt
+\newlength\ucasbeamer@length@toppadding
+\ucasbeamer@length@toppadding = 24pt
 
 % 定义扉页 (title page) 左上角标志的高度
-\newlength\icgwbeamer@length@labelheight@titlepage
-\icgwbeamer@length@labelheight@titlepage = 42pt
+\newlength\ucasbeamer@length@labelheight@titlepage
+\ucasbeamer@length@labelheight@titlepage = 42pt
 
 % 定义扉页之后 (Not title page) 左上角标志的高度
-\newlength\icgwbeamer@length@labelheight
-\icgwbeamer@length@labelheight = 28pt
+\newlength\ucasbeamer@length@labelheight
+\ucasbeamer@length@labelheight = 28pt
 
 % --------------------------------- 预设颜色 --------------------------------- %
 
-\definecolor{icgwbeamer@base}{RGB}{0, 64, 152} % 底色：孔雀蓝
-\definecolor{icgwbeamer@graybase}{RGB}{240, 240, 240}
-\definecolor{icgwbeamer@gray}{RGB}{130, 130, 130}
-\definecolor{icgwbeamer@orange}{RGB}{240,140,0}
-\definecolor{icgwbeamer@red}{RGB}{210, 26, 66}
-\definecolor{icgwbeamer@green}{RGB}{0, 127, 0}
+\definecolor{ucasbeamer@base}{RGB}{0, 64, 152} % 底色：孔雀蓝
+\definecolor{ucasbeamer@graybase}{RGB}{240, 240, 240}
+\definecolor{ucasbeamer@gray}{RGB}{130, 130, 130}
+\definecolor{ucasbeamer@orange}{RGB}{240,140,0}
+\definecolor{ucasbeamer@red}{RGB}{210, 26, 66}
+\definecolor{ucasbeamer@green}{RGB}{0, 127, 0}
 
 % -------------------------------- 自定义命令 -------------------------------- %
-\providecommand{\red}[1]{{\color{icgwbeamer@red}{#1}}}
-\providecommand{\green}[1]{{\color{icgwbeamer@green}{#1}}}
+\providecommand{\red}[1]{{\color{ucasbeamer@red}{#1}}}
+\providecommand{\green}[1]{{\color{ucasbeamer@green}{#1}}}
 
 % -------------------------------- 自定义设置 -------------------------------- %
 % 使用页眉（章节题目）
 \useoutertheme{infolines}
 % 设置页码边距
 \setbeamersize{%
-  text margin left=\icgwbeamer@length@margin,
-  text margin right=\icgwbeamer@length@margin}
+  text margin left=\ucasbeamer@length@margin,
+  text margin right=\ucasbeamer@length@margin}
 
 
 % 设置展示页面的标题与副标题
 \setbeamertemplate{frametitle}{%
-  \vskip\icgwbeamer@length@toppadding
+  \vskip\ucasbeamer@length@toppadding
   \vtop{{%
       \usebeamerfont{frametitle}{\insertframetitle}%
       \ifx\insertframesubtitle\@empty\else\\
@@ -108,18 +108,18 @@
 % 设置背景
 \setbeamertemplate{background canvas}{%
     \ifnum\value{page} = 1
-        \let\icgwbeamer@temp@length\icgwbeamer@length@labelheight@titlepage
+        \let\ucasbeamer@temp@length\ucasbeamer@length@labelheight@titlepage
     \else
-        \let\icgwbeamer@temp@length\icgwbeamer@length@labelheight
+        \let\ucasbeamer@temp@length\ucasbeamer@length@labelheight
     \fi
-    \leavevmode\hskip\icgwbeamer@length@margin
-    \includegraphics[height = \icgwbeamer@temp@length]%
-    {\icgwbeamer@filename@label}%
+    \leavevmode\hskip\ucasbeamer@length@margin
+    \includegraphics[height = \ucasbeamer@temp@length]%
+    {\ucasbeamer@filename@label}%
 }
 
 % 设置页脚的信息（姓名、题目、日期、页码）
 \setbeamertemplate{footline}{%
-  \hskip\icgwbeamer@length@margin
+  \hskip\ucasbeamer@length@margin
   \usebeamercolor[fg]{author in head/foot}%
     \usebeamerfont{author in head/foot}\insertshortauthor
   \ \lower2pt\hbox{\Large$\cdot$}\
@@ -130,9 +130,9 @@
     \usebeamerfont{date in head/foot}\insertshortdate
   \hfill
   \insertframenumber{} / \inserttotalframenumber
-  \hskip\icgwbeamer@length@margin
-  \vrule width 0pt height \icgwbeamer@length@footlineheight
-         depth \icgwbeamer@length@footlinebottompadding}
+  \hskip\ucasbeamer@length@margin
+  \vrule width 0pt height \ucasbeamer@length@footlineheight
+         depth \ucasbeamer@length@footlinebottompadding}
 
 % 设置扉页
 \setbeamertemplate{title page}{%
@@ -152,10 +152,10 @@
 
         \includegraphics%
         [      
-            width = \icgwbeamer@length@logomaxwidth,
-            height = \icgwbeamer@length@logomaxheight, 
+            width = \ucasbeamer@length@logomaxwidth,
+            height = \ucasbeamer@length@logomaxheight, 
             keepaspectratio
-        ]{\icgwbeamer@filename@logo}%
+        ]{\ucasbeamer@filename@logo}%
         \vfill
 
         {\usebeamerfont{date}\centering \insertdate}%
@@ -164,15 +164,15 @@
 
 % 设置结构 (structure) 的字体及前景颜色
 \setbeamerfont{structure}{series = \bfseries}
-\setbeamercolor{structure}{fg = icgwbeamer@gray}
+\setbeamercolor{structure}{fg = ucasbeamer@gray}
 
 % 设置警示 (alerted) 的字体及前景颜色
 \setbeamerfont{alerted text}{series = \bfseries}
-\setbeamercolor{alerted text}{fg = icgwbeamer@orange}
+\setbeamercolor{alerted text}{fg = ucasbeamer@orange}
 
 % 设置题目 (title) 的字体、大小及颜色
 \setbeamerfont{title}{size = \Large, series = \bfseries}
-\setbeamercolor{title}{fg = icgwbeamer@base}
+\setbeamercolor{title}{fg = ucasbeamer@base}
 \setbeamerfont{title in head/foot}{size = \tiny, series = \bfseries}
 \setbeamercolor{title in head/foot}{parent = structure}
 
@@ -210,18 +210,18 @@
 \setbeamertemplate{blocks}[rounded][shadow = true]
 
 % 设置展示块，一般块、示例块、警醒块 (block title) 的标题颜色，前景色与背景色
-\setbeamercolor{block title}{fg = white, bg = icgwbeamer@base}
+\setbeamercolor{block title}{fg = white, bg = ucasbeamer@base}
 \setbeamercolor{block title example}{%
-  use = alerted text, fg = white, bg = icgwbeamer@gray}
+  use = alerted text, fg = white, bg = ucasbeamer@gray}
 \setbeamercolor{block title alerted}{%
-  use = alerted text, fg = white, bg = icgwbeamer@orange}
+  use = alerted text, fg = white, bg = ucasbeamer@orange}
 
 % 设置展示块内容的文本颜色、背景颜色
 \setbeamercolor{block body}{%
   parent = normal text, use = block title,
   bg = block title.bg!10!bg}
 \setbeamercolor{block body example}{%
-  parent = normal text, bg = icgwbeamer@graybase}
+  parent = normal text, bg = ucasbeamer@graybase}
 \setbeamercolor{block body alerted}{%
   parent = normal text, use = block title alerted,
   bg = block title alerted.bg!10!bg}
