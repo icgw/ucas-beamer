@@ -9,19 +9,17 @@
 \DeclareOptionBeamer{logo}{\def\ucasbeamer@option@logo{#1}}
 \ExecuteOptionsBeamer{logo = AMSS}
 
-\RequirePackage[utf8]{inputenc}
 \RequirePackage{booktabs}
-
+\RequirePackage[T1]{fontenc}
+\RequirePackage{PTSans}
 % 设置字体
 \@ifpackageloaded{ctex}
  {  % 如果已加载 ctex
-	\setmainfont{Times New Roman} %设置 Times New Roman 为默认的英文字体  
-	\setCJKmainfont{SimSun}       %设置宋体为默认的中文字体
+	\setmainfont{Times New Roman}  % 设置 Times New Roman 为默认的英文字体
+  \renewcommand*{\em}{\kaishu}
  }
  {  % 否则
 	\RequirePackage[english]{babel}
-	\RequirePackage{PTSans}
-	\RequirePackage[T1]{fontenc}
  }
 
 \ProcessOptionsBeamer
