@@ -22,5 +22,5 @@
         - 模板 [下载页面](https://github.com/icgw/ucas-beamer/releases)
         - `New Project` - `Upload Project` - `Select a .zip file`
     2. 编译器选项设置为 `XeLaTeX`，然后重新编译即可。
-        - `Menu` - `Settings` - `Compiler` - `XeLaTex`
+        - `Menu` - `Settings` - `Compiler` - `XeLaTeX`
         - `Recompile`
