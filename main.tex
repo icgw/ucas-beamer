@@ -50,25 +50,25 @@
 \subsection[Short Subsection 2 Name]{Full Subsection 2 Name}
 
 \begin{frame}{Text Blocks}
-	text above a block. \red{Red}, \green{Green}.
+	text above a block.
 	\begin{block}{Block}
-		text
+		To cite reference\cite{icgw} here.
 	\end{block}
 	\begin{exampleblock}{Example Block}
-		text
+		\red{Red}
 	\end{exampleblock}
 	\begin{alertblock}{Emphasized Block}
-		text
+		\green{Green}
 	\end{alertblock}
 	text below a block\footnote{a footnote with an \url{http://icgw.me}}
 \end{frame}
 
-% \begin{frame}{Figures}
-% 	\begin{figure}
-% 		\includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{cow-black.mps}
-% 		\caption{A Holstein Friesian cow}
-% 	\end{figure}
-% \end{frame}
+\begin{frame}{Figures}
+	\begin{figure}
+		\includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{cow-black.mps}
+		\caption{A Holstein Friesian cow}
+	\end{figure}
+\end{frame}
 
 \subsection[Short Subsection 3 Name]{Full Subsection 3 Name}
 
@@ -103,22 +103,37 @@
 \end{frame}
 \makeatother
 
-\begin{frame}{References}
-	\begin{thebibliography}{9}
+\begin{frame}[allowframebreaks, plain]
+	\frametitle<presentation>{References}
+	\begin{thebibliography}{10}
 		\setbeamertemplate{bibliography item}[online]
-		\bibitem{} Online resouces
+		\bibitem[Guowei Chen]{icgw}% network resource
+			Guowei Chen
+			\newblock {\em University of Chinese Academy of Sciences} Beamer (LaTeX) non-official template
+			\newblock \url{https://github.com/icgw/ucas-beamer}
 
 		\setbeamertemplate{bibliography item}[book]
-		\bibitem{} Books
+		\bibitem[Knuth, 1997]{knuth1997art}% book
+			Knuth, Donald Ervin% author
+			\newblock The art of computer programming: sorting and searching% book title
+			\newblock Vol. 3. {\em Pearson Education}, 1997.% publisher
 
 		\setbeamertemplate{bibliography item}[article]
-		\bibitem{} Articles
-
+		\bibitem[Jain, 1999]{jain1999data}% book
+			Jain, Anil K and Murty, M Narasimha and Flynn, Patrick. J% author
+			\newblock Data clustering: a review% book title
+			\newblock {\em ACM computing surveys (CSUR)}, 31(3): 264-323, 1999.% publisher
 		\setbeamertemplate{bibliography item}[triangle]
-		\bibitem{} Triangle
+		\bibitem[item X]{symbol} item content
 
 		\setbeamertemplate{bibliography item}[text]
-		\bibitem{} Text
+		\bibitem[text title]{text} text content
+
+		\setbeamertemplate{bibliography item}[book]
+		\bibitem[Knuth, 1997]{tantau2004user}% book
+			Tantau, Till and Wright, J and Miletic, V% author
+			\newblock User Guide to the Beamer Class% book title
+			\newblock {\em Version}, 2004.% publisher
 	\end{thebibliography}
 \end{frame}
 
