@@ -3,6 +3,10 @@
 % \usetheme[label = UCAS, logo = UCAS]{ucas}
 \usetheme[]{ucas}
 
+\usepackage[backend=bibtex,citestyle=authoryear]{biblatex}
+\let\cite\autocite
+\addbibresource{reference}
+
 \title[Short Presentation Title]{Full Presentation Title}
 \subtitle[Short Presentation Subtitle]{Full Presentation Subtitle}
 \author[G.W.\, CH]{\href{mailto:icgw@outlook.com}{Guowei Chen}}
@@ -14,133 +18,139 @@
 \begin{document}
 
 \begin{frame}[plain]
-	\maketitle
+  \maketitle
 \end{frame}
 
 \begin{frame}{Table of Contents}
-	\tableofcontents
+  \tableofcontents
 \end{frame}
 
 \section[Short Section 1 Name]{Full Section 1 Name}
 \subsection[Short Subsection 1 Name]{Full Subsection 1 Name}
 
 \begin{frame}{Frame Title}{Frame Subtitle}
-	plain text, \structure{page structure}, \alert{emphasis}
-	\begin{itemize}
-		\item a single-line bullet list item
-		\item a bullet list item that is quite long (in order to force a line break),
-		      which also contains \alert{emphasized text}
-		      \begin{itemize}
-			      \item a second-level list item
-			            \begin{itemize}
-				            \item a third-level list item
-			            \end{itemize}
-			            \alert{\item an emphasized second-level list item}
-		      \end{itemize}
-	\end{itemize}
-	\begin{enumerate}
-		\item a numbered list item
-		      \begin{enumerate}
-			      \item a second-level list item containing a math expression
-			            \[ E = mc^2 \]
-		      \end{enumerate}
-	\end{enumerate}
+  plain text, \structure{page structure}, \alert{emphasis}
+  \begin{itemize}
+    \item a single-line bullet list item
+    \item a bullet list item that is quite long (in order to force a line break),
+          which also contains \alert{emphasized text}
+          \begin{itemize}
+            \item a second-level list item
+                  \begin{itemize}
+                    \item a third-level list item
+                  \end{itemize}
+                  \alert{\item an emphasized second-level list item}
+          \end{itemize}
+  \end{itemize}
+  \begin{enumerate}
+    \item a numbered list item
+          \begin{enumerate}
+            \item a second-level list item containing a math expression
+                  \[ E = mc^2 \]
+          \end{enumerate}
+  \end{enumerate}
 \end{frame}
 
 \subsection[Short Subsection 2 Name]{Full Subsection 2 Name}
 
 \begin{frame}{Text Blocks}
-	text above a block.
-	\begin{block}{Block}
-		To cite reference\cite{icgw} here.
-	\end{block}
-	\begin{exampleblock}{Example Block}
-		\red{Red}
-	\end{exampleblock}
-	\begin{alertblock}{Emphasized Block}
-		\green{Green}
-	\end{alertblock}
-	text below a block\footnote{a footnote with an \url{http://icgw.me}}
+  text above a block.
+  \begin{block}{Block}
+    To cite reference~\cite{icgw:ucas/beamer} here.
+  \end{block}
+  \begin{exampleblock}{Example Block}
+    \red{Red}
+  \end{exampleblock}
+  \begin{alertblock}{Emphasized Block}
+    \green{Green}
+  \end{alertblock}
+  text below a block\footnote{a footnote with an \url{http://icgw.me}}
 \end{frame}
 
 \begin{frame}{Figures}
-	\begin{figure}
-		\includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{cow-black.mps}
-		\caption{A Holstein Friesian cow}
-	\end{figure}
+  \begin{figure}
+    \includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{cow-black.mps}
+    \caption{A Holstein Friesian cow}
+  \end{figure}
 \end{frame}
 
 \subsection[Short Subsection 3 Name]{Full Subsection 3 Name}
 
 \begin{frame}{Tables}
-	\begin{table}
-		\begin{tabular}{llc}
-			First Name & Surname  & Year of Birth \\ \midrule
-			Albert     & Einstein & 1879          \\
-			Marie      & Curie    & 1867          \\
-			Thomas     & Edison   & 1847          \\
-		\end{tabular}
-		\caption{The great minds of the 19th century}
-	\end{table}
+  \begin{table}
+    \begin{tabular}{llc}
+      First Name & Surname  & Year of Birth \\ \midrule
+      Albert     & Einstein & 1879          \\
+      Marie      & Curie    & 1867          \\
+      Thomas     & Edison   & 1847          \\
+    \end{tabular}
+    \caption{The great minds of the 19th century}
+  \end{table}
+  The Art of Computer Programming~\cite{DBLP:books/aw/Knuth73}, Data Clustering: {A} Review~\cite{DBLP:journals/csur/JainMF99}, User's Guide to the Beamer Class, Version 3.01~\cite{tantau2004user}, LATEX~\cite{lamport1994latex}, Guide~\cite{kopka1995guide}.
 \end{frame}
 
 \makeatletter
 \begin{frame}{Automatic Optical Scaling}
-	\begin{center}
-		\begin{tabular}{ll}
-			\Huge Huge                 & \Huge \structure{\f@size pt}         \\
-			\huge huge                 & \huge \structure{\f@size pt}         \\
-			\LARGE LARGE               & \LARGE \structure{\f@size pt}        \\
-			\Large Large               & \Large \structure{\f@size pt}        \\
-			\large large               & \large \structure{\f@size pt}        \\
-			\normalsize normalsize     & \normalsize \structure{\f@size pt}   \\[-0.95pt]
-			\small small               & \small \structure{\f@size pt}        \\[-1.95pt]
-			\footnotesize footnotesize & \footnotesize \structure{\f@size pt} \\[-2.95pt]
-			\scriptsize scriptsize     & \scriptsize \structure{\f@size pt}   \\[-4.95pt]
-			\tiny tiny                 & \tiny \structure{\f@size pt}
-		\end{tabular}
-	\end{center}
+  \begin{center}
+    \begin{tabular}{ll}
+      \Huge Huge                 & \Huge \structure{\f@size pt}         \\
+      \huge huge                 & \huge \structure{\f@size pt}         \\
+      \LARGE LARGE               & \LARGE \structure{\f@size pt}        \\
+      \Large Large               & \Large \structure{\f@size pt}        \\
+      \large large               & \large \structure{\f@size pt}        \\
+      \normalsize normalsize     & \normalsize \structure{\f@size pt}   \\[-0.95pt]
+      \small small               & \small \structure{\f@size pt}        \\[-1.95pt]
+      \footnotesize footnotesize & \footnotesize \structure{\f@size pt} \\[-2.95pt]
+      \scriptsize scriptsize     & \scriptsize \structure{\f@size pt}   \\[-4.95pt]
+      \tiny tiny                 & \tiny \structure{\f@size pt}
+    \end{tabular}
+  \end{center}
 \end{frame}
 \makeatother
 
-\begin{frame}[allowframebreaks, plain]
-	\frametitle<presentation>{References}
-	\begin{thebibliography}{10}
-		\setbeamertemplate{bibliography item}[online]
-		\bibitem[Guowei Chen]{icgw}% network resource
-			Guowei Chen
-			\newblock {\em University of Chinese Academy of Sciences} Beamer (LaTeX) non-official template
-			\newblock \url{https://github.com/icgw/ucas-beamer}
+% \begin{frame}[allowframebreaks, plain]
+%   \frametitle<presentation>{References}
+%   \begin{thebibliography}{10}
+%     \setbeamertemplate{bibliography item}[online]
+%     \bibitem[Guowei Chen]{icgw}% network resource
+%       Guowei Chen
+%       \newblock {\em University of Chinese Academy of Sciences} Beamer (LaTeX) non-official template
+%       \newblock \url{https://github.com/icgw/ucas-beamer}
 
-		\setbeamertemplate{bibliography item}[book]
-		\bibitem[Knuth, 1997]{knuth1997art}% book
-			Knuth, Donald Ervin% author
-			\newblock The art of computer programming: sorting and searching% book title
-			\newblock Vol. 3. {\em Pearson Education}, 1997.% publisher
+%     \setbeamertemplate{bibliography item}[book]
+%     \bibitem[Knuth, 1997]{knuth1997art}% book
+%       Knuth, Donald Ervin% author
+%       \newblock The art of computer programming: sorting and searching% book title
+%       \newblock Vol. 3. {\em Pearson Education}, 1997.% publisher
 
-		\setbeamertemplate{bibliography item}[article]
-		\bibitem[Jain, 1999]{jain1999data}% book
-			Jain, Anil K and Murty, M Narasimha and Flynn, Patrick. J% author
-			\newblock Data clustering: a review% book title
-			\newblock {\em ACM computing surveys (CSUR)}, 31(3): 264-323, 1999.% publisher
-		\setbeamertemplate{bibliography item}[triangle]
-		\bibitem[item X]{symbol} item content
+%     \setbeamertemplate{bibliography item}[article]
+%     \bibitem[Jain, 1999]{jain1999data}% book
+%       Jain, Anil K and Murty, M Narasimha and Flynn, Patrick. J% author
+%       \newblock Data clustering: a review% book title
+%       \newblock {\em ACM computing surveys (CSUR)}, 31(3): 264-323, 1999.% publisher
+%     \setbeamertemplate{bibliography item}[triangle]
+%     \bibitem[item X]{symbol} item content
 
-		\setbeamertemplate{bibliography item}[text]
-		\bibitem[text title]{text} text content
+%     \setbeamertemplate{bibliography item}[text]
+%     \bibitem[text title]{text} text content
 
-		\setbeamertemplate{bibliography item}[book]
-		\bibitem[Knuth, 1997]{tantau2004user}% book
-			Tantau, Till and Wright, J and Miletic, V% author
-			\newblock User Guide to the Beamer Class% book title
-			\newblock {\em Version}, 2004.% publisher
-	\end{thebibliography}
+%     \setbeamertemplate{bibliography item}[book]
+%     \bibitem[Knuth, 1997]{tantau2004user}% book
+%       Tantau, Till and Wright, J and Miletic, V% author
+%       \newblock User Guide to the Beamer Class% book title
+%       \newblock {\em Version}, 2004.% publisher
+%   \end{thebibliography}
+% \end{frame}
+
+\begin{frame}[noframenumbering,allowframebreaks, plain]
+  \frametitle<presentation>{References}
+  \printbibliography
 \end{frame}
 
 \begin{frame}[plain]
-	\vfill
-	\centerline{\Large Thank you for your attention!}
-	\vfill\vfill
+  \vfill
+  \centerline{\Large Thank you for your attention!}
+  \vfill\vfill
 \end{frame}
 
 \end{document}

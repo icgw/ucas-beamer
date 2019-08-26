@@ -15,11 +15,11 @@
 % setting font
 \@ifpackageloaded{ctex}
  {% if loaded package ctex
-	\setmainfont{Times New Roman}% setting Times New Roman as the default english font
+  \setmainfont{Times New Roman}% setting Times New Roman as the default english font
   \renewcommand*{\em}{\kaishu}
  }
  {% else
-	\RequirePackage[english]{babel}
+  \RequirePackage[english]{babel}
  }
 
 \ProcessOptionsBeamer
@@ -30,10 +30,10 @@
 
 % define the filename of label and logo
 \def\ucasbeamer@filename@label{%
-    \ucasbeamer@pathname@label \ucasbeamer@option@label%
+  \ucasbeamer@pathname@label \ucasbeamer@option@label%
 }
 \def\ucasbeamer@filename@logo{%
-    \ucasbeamer@pathname@logo \ucasbeamer@option@logo%
+  \ucasbeamer@pathname@logo \ucasbeamer@option@logo%
 }
 
 % ------------------------------ Setting Length ------------------------------ %
@@ -94,25 +94,25 @@
 \setbeamertemplate{frametitle}{%
   \vskip\ucasbeamer@length@toppadding
   \vtop{{%
-      \usebeamerfont{frametitle}{\insertframetitle}%
-      \ifx\insertframesubtitle\@empty\else\\
-        \usebeamerfont{framesubtitle}{\insertframesubtitle}
-      \fi}
-    \vfill}}
+    \usebeamerfont{frametitle}{\insertframetitle}%
+    \ifx\insertframesubtitle\@empty\else\\
+      \usebeamerfont{framesubtitle}{\insertframesubtitle}
+    \fi}
+  \vfill}}
 
 % cancel the navigation symbols
 \setbeamertemplate{navigation symbols}{}
 
 % setting background
 \setbeamertemplate{background canvas}{%
-    \ifnum\value{page} = 1
-        \let\ucasbeamer@temp@length\ucasbeamer@length@labelheight@titlepage
-    \else
-        \let\ucasbeamer@temp@length\ucasbeamer@length@labelheight
-    \fi
-    \leavevmode\hskip\ucasbeamer@length@margin
-    \includegraphics[height = \ucasbeamer@temp@length]%
-    {\ucasbeamer@filename@label}%
+  \ifnum\value{page} = 1
+      \let\ucasbeamer@temp@length\ucasbeamer@length@labelheight@titlepage
+  \else
+      \let\ucasbeamer@temp@length\ucasbeamer@length@labelheight
+  \fi
+  \leavevmode\hskip\ucasbeamer@length@margin
+  \includegraphics[height = \ucasbeamer@temp@length]%
+  {\ucasbeamer@filename@label}%
 }
 
 % setting fooline
@@ -134,30 +134,30 @@
 
 % setting title page
 \setbeamertemplate{title page}{%
+  \vfill
+  \begin{center}
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}%
+    \smallskip
+
+    {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}%
     \vfill
-    \begin{center}
-        {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}%
-        \smallskip
-    
-        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}%
-        \vfill
-    
-        {\usebeamerfont{author} \insertauthor}%
-        \medskip
 
-        {\usebeamerfont{institute} \insertinstitute}%
-        \medskip
+    {\usebeamerfont{author} \insertauthor}%
+    \medskip
 
-        \includegraphics%
-        [      
-            width = \ucasbeamer@length@logomaxwidth,
-            height = \ucasbeamer@length@logomaxheight, 
-            keepaspectratio
-        ]{\ucasbeamer@filename@logo}%
-        \vfill
+    {\usebeamerfont{institute} \insertinstitute}%
+    \medskip
 
-        {\usebeamerfont{date}\centering \insertdate}%
-    \end{center}
+    \includegraphics%
+    [
+      width = \ucasbeamer@length@logomaxwidth,
+      height = \ucasbeamer@length@logomaxheight,
+      keepaspectratio
+    ]{\ucasbeamer@filename@logo}%
+    \vfill
+
+    {\usebeamerfont{date}\centering \insertdate}%
+  \end{center}
 }
 
 % setting the font and forward color of structure
@@ -223,6 +223,17 @@
 \setbeamercolor{block body alerted}{%
   parent = normal text, use = block title alerted,
   bg = block title alerted.bg!10!bg}
+
+% setting the bibliography entry style
+\setbeamertemplate{bibliography item}{%
+  \ifboolexpr{ test {\ifentrytype{book}} or test {\ifentrytype{mvbook}}
+    or test {\ifentrytype{collection}} or test {\ifentrytype{mvcollection}}
+    or test {\ifentrytype{reference}} or test {\ifentrytype{mvreference}} }
+    {\setbeamertemplate{bibliography item}[book]}
+    {\ifentrytype{online}
+      {\setbeamertemplate{bibliography item}[online]}
+      {\setbeamertemplate{bibliography item}[article]}}%
+  \usebeamertemplate{bibliography item}}
 
 \mode<all>
 \endinput
