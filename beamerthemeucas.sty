@@ -1,39 +1,39 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerthemeucas}[2019/01/03]
+\ProvidesPackage{beamerthemeucas}[2019/11/26]
 
 \mode<presentation>
 
-\DeclareOptionBeamer{label}{\def\ucasbeamer@option@label{#1}}
-\ExecuteOptionsBeamer{label = UCAS}
+\DeclareOptionBeamer{sign}{\def\ucasbeamer@option@sign{#1}}
+\ExecuteOptionsBeamer{sign=UCAS}
 
 \DeclareOptionBeamer{logo}{\def\ucasbeamer@option@logo{#1}}
-\ExecuteOptionsBeamer{logo = AMSS}
+\ExecuteOptionsBeamer{logo=AMSS}
 
 \RequirePackage{booktabs}
+\RequirePackage[silent]{fontspec}
 \RequirePackage[T1]{fontenc}
-\RequirePackage{PTSans}
+\RequirePackage{lmodern}
+\RequirePackage{csquotes}
+\RequirePackage{ctex}
+
 % 设置字体
-\@ifpackageloaded{ctex}
- {  % 如果已加载 ctex
-	\setmainfont{Times New Roman}  % 设置 Times New Roman 为默认的英文字体
-  \renewcommand*{\em}{\kaishu}
- }
- {  % 否则
-	\RequirePackage[english]{babel}
- }
+\usefonttheme{professionalfonts}
+\setromanfont{Times New Roman}% 设置 Times New Roman 为默认的英文字体
+\setsansfont{Arial}
+\renewcommand*{\em}{\kaishu}
 
 \ProcessOptionsBeamer
 
-% 定义标志 (label) 和 徽章 (logo) 的文件夹路径
-\def\ucasbeamer@pathname@label{label/}
+% 定义标志 (sign) 和 徽章 (logo) 的文件夹路径
+\def\ucasbeamer@pathname@sign{sign/}
 \def\ucasbeamer@pathname@logo{logo/}
 
 % 定义标志及徽章的文件名
-\def\ucasbeamer@filename@label{%
-    \ucasbeamer@pathname@label \ucasbeamer@option@label%
+\def\ucasbeamer@filename@sign{%
+  \ucasbeamer@pathname@sign \ucasbeamer@option@sign%
 }
 \def\ucasbeamer@filename@logo{%
-    \ucasbeamer@pathname@logo \ucasbeamer@option@logo%
+  \ucasbeamer@pathname@logo \ucasbeamer@option@logo%
 }
 
 % --------------------------------- 预设长度 --------------------------------- %
@@ -61,12 +61,12 @@
 \ucasbeamer@length@toppadding = 24pt
 
 % 定义扉页 (title page) 左上角标志的高度
-\newlength\ucasbeamer@length@labelheight@titlepage
-\ucasbeamer@length@labelheight@titlepage = 42pt
+\newlength\ucasbeamer@length@signheight@titlepage
+\ucasbeamer@length@signheight@titlepage = 42pt
 
 % 定义扉页之后 (Not title page) 左上角标志的高度
-\newlength\ucasbeamer@length@labelheight
-\ucasbeamer@length@labelheight = 28pt
+\newlength\ucasbeamer@length@signheight
+\ucasbeamer@length@signheight = 28pt
 
 % --------------------------------- 预设颜色 --------------------------------- %
 
@@ -94,10 +94,10 @@
 \setbeamertemplate{frametitle}{%
   \vskip\ucasbeamer@length@toppadding
   \vtop{{%
-      \usebeamerfont{frametitle}{\insertframetitle}%
-      \ifx\insertframesubtitle\@empty\else\\
-        \usebeamerfont{framesubtitle}{\insertframesubtitle}
-      \fi}
+    \usebeamerfont{frametitle}{\insertframetitle}%
+    \ifx\insertframesubtitle\@empty\else\\
+      \usebeamerfont{framesubtitle}{\insertframesubtitle}
+    \fi}
     \vfill}}
 
 % 取消底部的导航栏
@@ -105,14 +105,14 @@
 
 % 设置背景
 \setbeamertemplate{background canvas}{%
-    \ifnum\value{page} = 1
-        \let\ucasbeamer@temp@length\ucasbeamer@length@labelheight@titlepage
-    \else
-        \let\ucasbeamer@temp@length\ucasbeamer@length@labelheight
-    \fi
-    \leavevmode\hskip\ucasbeamer@length@margin
-    \includegraphics[height = \ucasbeamer@temp@length]%
-    {\ucasbeamer@filename@label}%
+  \ifnum\value{page} = 1
+    \let\ucasbeamer@temp@length\ucasbeamer@length@signheight@titlepage
+  \else
+    \let\ucasbeamer@temp@length\ucasbeamer@length@signheight
+  \fi
+  \leavevmode\hskip\ucasbeamer@length@margin
+  \includegraphics[height = \ucasbeamer@temp@length]%
+  {\ucasbeamer@filename@sign}%
 }
 
 % 设置页脚的信息（姓名、题目、日期、页码）
@@ -134,30 +134,30 @@
 
 % 设置扉页
 \setbeamertemplate{title page}{%
+  \vfill
+  \begin{center}
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}%
+    \smallskip
+
+    {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}%
     \vfill
-    \begin{center}
-        {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}%
-        \smallskip
-    
-        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}%
-        \vfill
-    
-        {\usebeamerfont{author} \insertauthor}%
-        \medskip
 
-        {\usebeamerfont{institute} \insertinstitute}%
-        \medskip
+    {\usebeamerfont{author} \insertauthor}%
+    \medskip
 
-        \includegraphics%
-        [      
-            width = \ucasbeamer@length@logomaxwidth,
-            height = \ucasbeamer@length@logomaxheight, 
-            keepaspectratio
-        ]{\ucasbeamer@filename@logo}%
-        \vfill
+    {\usebeamerfont{institute} \insertinstitute}%
+    \medskip
 
-        {\usebeamerfont{date}\centering \insertdate}%
-    \end{center}
+    \includegraphics%
+    [
+      width = .6\textwidth,
+      height = .15\textheight, 
+      keepaspectratio
+    ]{\ucasbeamer@filename@logo}%
+    \vfill
+
+    {\usebeamerfont{date}\centering \insertdate}%
+  \end{center}
 }
 
 % 设置结构 (structure) 的字体及前景颜色
@@ -223,6 +223,16 @@
 \setbeamercolor{block body alerted}{%
   parent = normal text, use = block title alerted,
   bg = block title alerted.bg!10!bg}
+
+\setbeamertemplate{bibliography item}{%
+  \ifboolexpr{ test {\ifentrytype{book}} or test {\ifentrytype{mvbook}}
+    or test {\ifentrytype{collection}} or test {\ifentrytype{mvcollection}}
+    or test {\ifentrytype{reference}} or test {\ifentrytype{mvreference}} }
+    {\setbeamertemplate{bibliography item}[book]}
+    {\ifentrytype{online}
+      {\setbeamertemplate{bibliography item}[online]}
+      {\setbeamertemplate{bibliography item}[article]}}%
+    \usebeamertemplate{bibliography item}}
 
 \mode<all>
 \endinput

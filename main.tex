@@ -1,146 +1,126 @@
-\documentclass[sans]{beamer}
-\usepackage{ctex}
+\documentclass[10pt,utf8]{beamer}
+\usetheme[sign=UCAS,logo=AMSS]{ucas}
 
-% \usetheme[label = UCAS, logo = UCAS]{ucas}
-\usetheme[]{ucas}
+\usepackage[backend=biber,citestyle=authoryear]{biblatex}
 
-\title[主题缩写]{主题}
-\subtitle[副标题缩写]{副标题}
-\author[G.W.\, CH]{\href{mailto:icgw@outlook.com}{纯果味}}
+\addbibresource{ref.bib}
+\title[UCAS Beamer (\LaTeX{})]{中国科学院大学 Beamer (\LaTeX{})}
+\subtitle[非官方]{非官方的模版}
+\author[G.~Chen]{\href{mailto:icgw@outlook.com}{陈国威}}
 \institute[AMSS, CAS]{中国科学院数学与系统科学研究院}
-\date{\today}
+\date[\today]{\today, 中国北京}
 \subject{展示主题}
 \keywords{展示，关键词}
 
 \begin{document}
+
 \begin{frame}[plain]
-	\maketitle
+  \maketitle
 \end{frame}
 
-\begin{frame}{目录}
-	\tableofcontents
+\begin{frame}[t]
+  \frametitle{目录}
+  \tableofcontents
 \end{frame}
 
 \section[第 1 章缩写标题]{第 1 章主标题}
 \subsection[第 1 节缩写标题]{第 1 节主标题}
 
-\begin{frame}{幻灯片标题}{幻灯片副标题}
-	平凡格式，\structure{浅灰格式}，\alert{强调格式}
-	\begin{itemize}
-		\item 第一级文本内容
-		\item 若该行文本内容十分长长长长长长长长长，则会被强制换行，
-		      这里也可以包含\alert{需要强调的文本}
-		      \begin{itemize}
-			      \item 第二级文本内容
-			            \begin{itemize}
-				            \item 第三级文本内容
-			            \end{itemize}
-			            \alert{\item 第二级强调的文本内容}
-		      \end{itemize}
-	\end{itemize}
-	\begin{enumerate}
-		\item 带序号的文本内容
-		      \begin{enumerate}
-			      \item 第二级文本内容且包含数学公式
-			            \[ E = mc^2 \]
-		      \end{enumerate}
-	\end{enumerate}
+\begin{frame}[t]
+  \frametitle{幻灯片标题}
+  \framesubtitle{幻灯片副标题}
+  平凡格式，\structure{浅灰格式}，\alert{强调格式}
+  \begin{itemize}
+    \item 第一级文本内容
+    \item 若该行文本内容十分长长长长长长长长长，则会被强制换行，
+      这里也可以包含\alert{需要强调的文本}
+      \begin{itemize}
+        \item 第二级文本内容
+          \begin{itemize}
+            \item 第三级文本内容
+          \end{itemize}
+          \alert{\item 第二级强调的文本内容}
+      \end{itemize}
+  \end{itemize}
+  \begin{enumerate}
+    \item 带序号的文本内容
+      \begin{enumerate}
+        \item 第二级文本内容且包含数学公式
+            \[ E = mc^2 \]
+      \end{enumerate}
+  \end{enumerate}
 \end{frame}
 
 \subsection[第 2 节缩写标题]{第 2 节主标题}
 
-\begin{frame}{文本区块}
-	将文本放入区块内
-	\begin{block}{普通区块}
-		引用 \cite{icgw} 提供的模板
-	\end{block}
-	\begin{exampleblock}{示例区块}
-		\red{红色}
-	\end{exampleblock}
-	\begin{alertblock}{强调区块}
-		\green{绿色}
-	\end{alertblock}
-	给文本加脚注\footnote{这个脚注附有链接 \url{http://icgw.me}}
+\begin{frame}[t]
+  \frametitle{文本区块}
+  将文本放入区块内
+  \begin{block}{普通区块}
+    引用 \autocite{guowei2019ucasbeamer} 提供的模板
+  \end{block}
+  \begin{exampleblock}{示例区块}
+    \red{红色}
+  \end{exampleblock}
+  \begin{alertblock}{强调区块}
+    \green{绿色}
+  \end{alertblock}
+  给文本加脚注\footnote{这个脚注附有链接 \url{https://github.com/icgw/ucas-beamer}}
 \end{frame}
 
-% \begin{frame}{图像}
-% 	\begin{figure}
-% 		\includegraphics[width=.5\textwidth, height=.5\textheight, keepaspectratio]{cow-black.mps}
-% 		\caption{荷斯坦黑白花牛}
-% 	\end{figure}
+% \begin{frame}[t]
+%   \frametitle{图像}
+%   \begin{figure}
+%     \includegraphics[width=.5\textwidth, height=.5\textheight, keepaspectratio]{cow-black.mps}
+%     \caption{荷斯坦黑白花牛}
+%   \end{figure}
 % \end{frame}
 
 \subsection[第 3 节缩写标题]{第 3 节主标题}
 
-\begin{frame}{表格}
-	\begin{table}
-		\begin{tabular}{llc}
-			名称     & 姓氏     & 出生年份 \\ \midrule
-			阿尔伯特 & 爱因斯坦 & 1879     \\
-			玛丽     & 居里     & 1867     \\
-			托马斯   & 爱迪生   & 1847     \\
-		\end{tabular}
-		\caption{19世纪伟大的科学家}
-	\end{table}
+\begin{frame}[t]
+  \frametitle{表格}
+  \begin{table}
+    \begin{tabular}{llc}\toprule
+      名称     & 姓氏     & 出生年份  \\ \midrule
+      阿尔伯特 & 爱因斯坦 & 1,879     \\
+      玛丽     & 居里     & 1,867     \\
+      托马斯   & 爱迪生   & 1,847     \\ \bottomrule
+    \end{tabular}
+    \caption{十九世纪伟大的科学家}
+  \end{table}
 \end{frame}
 
 \makeatletter
-\begin{frame}{自定义字体大小}
-	\begin{center}
-		\begin{tabular}{ll}
-			\Huge  大大大大大字号 & \Huge \structure{\f@size pt}         \\
-			\huge  大大大大字号   & \huge \structure{\f@size pt}         \\
-			\LARGE 大大大字号     & \LARGE \structure{\f@size pt}        \\
-			\Large 大大字号       & \Large \structure{\f@size pt}        \\
-			\large 大字号的{\songti 宋体}          & \large \structure{\f@size pt}        \\
-			\normalsize 正常字号的{\heiti 黑体}    & \normalsize \structure{\f@size pt}   \\
-			\small 小字号的{\fangsong 仿宋}        & \small \structure{\f@size pt}        \\
-			\footnotesize 小小字号的{\kaishu 楷书} & \footnotesize \structure{\f@size pt} \\
-			\scriptsize 小小小字号 & \scriptsize \structure{\f@size pt}   \\
-			\tiny 小小小小字号     & \tiny \structure{\f@size pt}
-		\end{tabular}
-	\end{center}
+\begin{frame}[t]
+  \frametitle{自定义字体大小}
+  \begin{center}
+    \begin{tabular}{ll}
+      \Huge  $\backslash$Huge                              & \Huge \structure{\f@size pt}         \\
+      \huge  $\backslash$huge                              & \huge \structure{\f@size pt}         \\
+      \LARGE $\backslash$LARGE                             & \LARGE \structure{\f@size pt}        \\
+      \Large $\backslash$Large                             & \Large \structure{\f@size pt}        \\
+      \large $\backslash$large{\songti 宋体} (小四)        & \large \structure{\f@size pt}        \\
+      \normalsize $\backslash$normalsize{\heiti 黑体}      & \normalsize \structure{\f@size pt}   \\
+      \small $\backslash$small{\fangsong 仿宋}             & \small \structure{\f@size pt}        \\
+      \footnotesize $\backslash$footnotesize{\kaishu 楷书} & \footnotesize \structure{\f@size pt} \\
+      \scriptsize $\backslash$scriptsize                   & \scriptsize \structure{\f@size pt}   \\
+      \tiny $\backslash$ting (八号)                        & \tiny \structure{\f@size pt}
+    \end{tabular}
+  \end{center}
 \end{frame}
 \makeatother
 
-\begin{frame}[allowframebreaks, plain]
-	\frametitle<presentation>{参考文献}
-	\begin{thebibliography}{10}
-		\setbeamertemplate{bibliography item}[online]
-		\bibitem[纯果味]{icgw}% 网络资源
-			纯果味
-			\newblock {\em 中国科学院大学} Beamer (LaTeX) 模板（非官方版本）
-			\newblock \url{https://github.com/icgw/ucas-beamer}
-
-		\setbeamertemplate{bibliography item}[book]
-		\bibitem[Knuth, 1997]{knuth1997art}% 书籍
-			Knuth, Donald Ervin% 作者
-			\newblock The art of computer programming: sorting and searching% 书名
-			\newblock Vol. 3. {\em Pearson Education}, 1997.% 出版社
-
-		\setbeamertemplate{bibliography item}[article]
-		\bibitem[Jain, 1999]{jain1999data}% 文章
-			Jain, Anil K and Murty, M Narasimha and Flynn, Patrick. J% 作者
-			\newblock Data clustering: a review% 题目
-			\newblock {\em ACM computing surveys (CSUR)}, 31(3): 264-323, 1999.% 期刊
-		\setbeamertemplate{bibliography item}[triangle]
-		\bibitem[项目名]{symbol} 项目内容
-
-		\setbeamertemplate{bibliography item}[text]
-		\bibitem[标题]{text} 文本内容
-
-		\setbeamertemplate{bibliography item}[book]
-		\bibitem[Knuth, 1997]{tantau2004user}% 书籍
-			Tantau, Till and Wright, J and Miletic, V% 作者
-			\newblock User Guide to the Beamer Class% 书名
-			\newblock {\em Version}, 2004.% 出版社
-	\end{thebibliography}
+\begin{frame}[noframenumbering,allowframebreaks,t]
+  \frametitle{参考文献}
+  \nocite{*}% 打印未引用，但已列入 .bib 文件内的文献
+  \printbibliography
 \end{frame}
 
 \begin{frame}[plain]
-	\vfill
-	\centerline{\Large 谢谢！}
-	\vfill\vfill
+  \vfill
+  \centerline{\Huge 谢谢！}
+  \vfill
 \end{frame}
 
 \end{document}
