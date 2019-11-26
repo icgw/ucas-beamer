@@ -1,6 +1,6 @@
 <p align="center"><img src="http://www.ucas.ac.cn/newStyle/images/lougou.png"></p>
 
-# `ucas-beamer`
+# `UCAS beamer` (LaTeX)
 [中国科学院大学](http://www.ucas.ac.cn/) Beamer (LaTeX) 模板（非官方版）
 
 ## 简介
@@ -16,7 +16,9 @@
 * 推荐：[Overleaf](https://www.overleaf.com) 在线 LaTeX 编辑器
 
 ## 使用方法
-* 离线使用：安装完 Tex Live 之后，先用 `xelatex` 对 `main.tex` 编译一次，再用 `biber` 编译一次，最后用 `xelatex` 连续编译两次；
+* 离线使用
+  - 手动方式：安装完 TeX Live 之后，先用 `xelatex` 对 `main.tex` 编译一次，再用 `biber` 编译一次，最后用 `xelatex` 连续编译两次；
+  - 自动方式：`./build.sh xb main`
 * 在线使用：
   1. 下载此模板的压缩包并上传至 Overleaf 的 Project；
     - 模板 \[[下载页面](https://github.com/icgw/ucas-beamer/releases)\]
