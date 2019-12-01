@@ -1,14 +1,14 @@
 <p align="center"><img src="http://www.ucas.ac.cn/newStyle/images/lougou.png"></p>
 
-# `UCAS beamer` (LaTeX)
-[中国科学院大学](http://www.ucas.ac.cn/) Beamer (LaTeX) 模板（非官方版）
+# `UCAS Beamer` (LaTeX)
+[中国科学院大学](http://www.ucas.ac.cn/) Beamer (LaTeX) - 非官方的模版
 
 ## 简介
 * 集简洁、优雅、严肃的特性，用于报告展示的 LaTeX 模板，供中国科学院大学本科生、硕士生、博士生、留学生及各研究所研究人员自由使用，反馈意见请联系 [icgw@outlook.com](mailto:icgw@outlook.com)；
-* 查看 \[[输出样例](https://github.com/icgw/ucas-beamer/releases/download/v1.1/template-zh.pdf)\] \[[下载](https://github.com/icgw/ucas-beamer/archive/zh-CN.zip)\]
+* 查看 \[[输出样例](https://github.com/icgw/ucas-beamer/releases/download/v1.1/template-zh.pdf)\] \[[下载](https://github.com/icgw/ucas-beamer/archive/v1.1.zip)\]
 * 若你想用 PowerPoint 做展示，转至 \[[中国科学院大学官方提供的 PowerPoint 模板](http://onestop.ucas.edu.cn/Home/Info/e1e7b553-14c1-42f3-910a-88d25ebf9c48)\] \[[下载](http://onestop.ucas.edu.cn/Content/Upload/2019/4/2.zip)\]
 
-## 安装 Tex Live
+## 安装 TeX Live
 * [官方安装](https://www.tug.org/texlive/)
 * [清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/)
 
