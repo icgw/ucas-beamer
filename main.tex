@@ -1,12 +1,38 @@
-\documentclass[10pt,utf8]{beamer}
-\usetheme[sign=UCAS,logo=AMSS]{ucas}
+% 默认页面大小 4:3
+\documentclass[10pt]{beamer}
+% 页面大小 16:10
+% \documentclass[10pt, aspectratio=1610]{beamer}
+% 页面大小 16:9
+% \documentclass[10pt, aspectratio=169]{beamer}
+% 页面大小 14:9
+% \documentclass[10pt, aspectratio=149]{beamer}
+% 页面大小 1.41:1
+% \documentclass[10pt, aspectratio=141]{beamer}
+% 页面大小 5:4
+% \documentclass[10pt, aspectratio=54]{beamer}
+% 页面大小 3:2
+% \documentclass[10pt, aspectratio=32]{beamer}
 
-\usepackage[backend=biber,citestyle=authoryear]{biblatex}
+\usetheme[logo=UCAS, sublogo=AMSS]{ucas}
+% logo 的选项: CAS, UCAS
+% sublogo 的选项: AMSS, AMSS2018, UCAS
 
+\usepackage[backend=biber, citestyle=authoryear]{biblatex}
+
+% 具有字形变化的字母编码工具包，若不需要，可注释或删除，
+% \usepackage[T1]{fontenc}
+% 引入 [T1]{fontenc] 工具包在低版本 TeX 编译环境可能因为某些字符，如`~' 导致编译失败，以下命令可解决问题
+% \DeclareTextCommand{\nobreakspace}{T1}{\leavevmode\nobreak\ }
+
+% 用于超文本链接的工具包
+\usepackage{hyperref}
+
+% 引入参考文献列表的 .bib 文件
 \addbibresource{ref.bib}
+
 \title[UCAS Beamer (\LaTeX{})]{中国科学院大学 Beamer (\LaTeX{})}
 \subtitle[非官方]{非官方的模版}
-\author[G.~Chen]{\href{mailto:icgw@outlook.com}{陈国威}}
+\author[G.\,Chen]{\href{mailto:icgw@outlook.com}{陈国威}}
 \institute[AMSS, CAS]{中国科学院数学与系统科学研究院}
 \date[\today]{\today, 中国北京}
 \subject{展示主题}
@@ -23,8 +49,8 @@
   \tableofcontents
 \end{frame}
 
-\section[第 1 章缩写标题]{第 1 章主标题}
-\subsection[第 1 节缩写标题]{第 1 节主标题}
+\section[第 1 章缩写标题]{第 1 章主标题}\label{sec:1}
+\subsection[第 1 节缩写标题]{第 1 节主标题}\label{subsec:1-1}
 
 \begin{frame}[t]
   \frametitle{幻灯片标题}
@@ -46,12 +72,12 @@
     \item 带序号的文本内容
       \begin{enumerate}
         \item 第二级文本内容且包含数学公式
-            \[ E = mc^2 \]
+          \[\int^{\infty}_{-\infty}e^{-x^2}dx = \sqrt{x}\]
       \end{enumerate}
   \end{enumerate}
 \end{frame}
 
-\subsection[第 2 节缩写标题]{第 2 节主标题}
+\subsection[第 2 节缩写标题]{第 2 节主标题}\label{subsec:1-2}
 
 \begin{frame}[t]
   \frametitle{文本区块}
@@ -76,18 +102,18 @@
 %   \end{figure}
 % \end{frame}
 
-\subsection[第 3 节缩写标题]{第 3 节主标题}
+\subsection[第 3 节缩写标题]{第 3 节主标题}\label{subsec:1-3}
 
 \begin{frame}[t]
   \frametitle{表格}
   \begin{table}
-    \begin{tabular}{llc}\toprule
-      名称     & 姓氏     & 出生年份  \\ \midrule
-      阿尔伯特 & 爱因斯坦 & 1,879     \\
-      玛丽     & 居里     & 1,867     \\
-      托马斯   & 爱迪生   & 1,847     \\ \bottomrule
+    \begin{tabular}{lcl}\toprule
+      姓名   & 出生年份 & 母校 (本科)  \\ \midrule
+      陶哲轩 & 1975     & 弗林德斯大学 \\
+      张益唐 & 1955     & 北京大学     \\
+      丘成桐 & 1949     & 香港中文大学 \\ \bottomrule
     \end{tabular}
-    \caption{十九世纪伟大的科学家}
+    \caption{二十一世纪的数学家}
   \end{table}
 \end{frame}
 
@@ -96,25 +122,25 @@
   \frametitle{自定义字体大小}
   \begin{center}
     \begin{tabular}{ll}
-      \Huge  $\backslash$Huge                              & \Huge \structure{\f@size pt}         \\
-      \huge  $\backslash$huge                              & \huge \structure{\f@size pt}         \\
-      \LARGE $\backslash$LARGE                             & \LARGE \structure{\f@size pt}        \\
-      \Large $\backslash$Large                             & \Large \structure{\f@size pt}        \\
-      \large $\backslash$large{\songti 宋体} (小四)        & \large \structure{\f@size pt}        \\
-      \normalsize $\backslash$normalsize{\heiti 黑体}      & \normalsize \structure{\f@size pt}   \\
-      \small $\backslash$small{\fangsong 仿宋}             & \small \structure{\f@size pt}        \\
-      \footnotesize $\backslash$footnotesize{\kaishu 楷书} & \footnotesize \structure{\f@size pt} \\
-      \scriptsize $\backslash$scriptsize                   & \scriptsize \structure{\f@size pt}   \\
-      \tiny $\backslash$ting (八号)                        & \tiny \structure{\f@size pt}
+      \Huge  $\backslash$Huge                               & \Huge \structure{24.88 pt}     \\
+      \huge  $\backslash$huge                               & \huge \structure{20.74 pt}     \\
+      \LARGE $\backslash$LARGE                              & \LARGE \structure{17.28 pt}    \\
+      \Large $\backslash$Large                              & \Large \structure{14.4 pt}     \\
+      \large $\backslash$large{\songti{宋体}} (小四)        & \large \structure{12 pt}       \\
+      \normalsize $\backslash$normalsize{\heiti{黑体}}      & \normalsize \structure{10 pt}  \\
+      \small $\backslash$small{\fangsong{仿宋}}             & \small \structure{9 pt}        \\
+      \footnotesize $\backslash$footnotesize{\kaishu{楷书}} & \footnotesize \structure{8 pt} \\
+      \scriptsize $\backslash$scriptsize                    & \scriptsize \structure{7 pt}   \\
+      \tiny $\backslash$ting (八号)                         & \tiny \structure{5 pt}
     \end{tabular}
   \end{center}
 \end{frame}
 \makeatother
 
-\begin{frame}[noframenumbering,allowframebreaks,t]
+\begin{frame}[noframenumbering, allowframebreaks, t]
   \frametitle{参考文献}
   \nocite{*}% 打印未引用，但已列入 .bib 文件内的文献
-  \printbibliography
+  \printbibliography%
 \end{frame}
 
 \begin{frame}[plain]
