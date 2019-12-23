@@ -1,7 +1,7 @@
-![UCAS Beamer](.github/example.gif)
-
 # `UCAS Beamer` (LaTeX)
 > [中国科学院大学](http://www.ucas.ac.cn/) Beamer (LaTeX) - 非官方的模版
+
+![UCAS Beamer][UCAS Beamer Gif]
 
 ## 简介
 * 集简洁、优雅、严肃的特性，用于报告展示的 Beamer (LaTeX) 模板，供中国科学院大学本科生、硕士生、博士生、留学生及各研究所研究人员自由使用，反馈意见请联系 [icgw@outlook.com](mailto:icgw@outlook.com)；
@@ -29,3 +29,5 @@
 
 ## 许可说明
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a>进行许可。
+
+[UCAS Beamer Gif]: https://raw.githubusercontent.com/icgw/ucas-beamer/zh-CN/.github/example.gif
