@@ -1,4 +1,4 @@
-<p align="center"><img src="http://www.ucas.ac.cn/newStyle/images/lougou.png"></p>
+![UCAS Beamer](.github/example.gif)
 
 # `UCAS Beamer` (LaTeX)
 > [中国科学院大学](http://www.ucas.ac.cn/) Beamer (LaTeX) - 非官方的模版
