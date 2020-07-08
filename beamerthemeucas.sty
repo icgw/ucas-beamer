@@ -16,7 +16,7 @@
 \RequirePackage{ctex}
 
 % 设置字体
-\usefonttheme{professionalfonts}
+\usefonttheme{professionalfonts}% 数学公式字体
 \setromanfont{Times New Roman}% 设置 Times New Roman 为默认的英文字体
 \setsansfont{Arial}
 
@@ -85,6 +85,8 @@
 % -------------------------------- 自定义设置 -------------------------------- %
 % 使用页眉（章节题目）
 \useoutertheme{infolines}
+% 设置 \pause 之后的内容从半透明到完全显示的动态变化
+\setbeamercovered{dynamic}
 % 设置页码边距
 \setbeamersize{%
   text margin left=\ucasbeamermargin,
@@ -185,6 +187,10 @@
 
 % 设置项目符号 (item) 为方形 (square)
 \setbeamertemplate{itemize items}[square]
+% 设置子项目符号 (subitem) 为三角形 (triangle)
+\setbeamertemplate{itemize subitem}[triangle]
+% 设置子项目的子项目符号 (subsubitem) 为圆形 (circle)
+\setbeamertemplate{itemize subsubitem}[circle]
 
 % 设置 脚注 (footnote) 的字体大小、脚注的标号属性
 \setbeamerfont{footnote}{size=\footnotesize}
