@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerthemeucas}[2019/11/26]
+\ProvidesPackage{beamerthemeucas}[2020/07/11]
 
 \mode<presentation>
 
@@ -10,18 +10,17 @@
 \ExecuteOptionsBeamer{sublogo=AMSS}
 
 \RequirePackage{booktabs}
-\RequirePackage[silent]{fontspec}
-\RequirePackage{lmodern}
-\RequirePackage{csquotes}
-\RequirePackage{ctex}
+
+% 无标号的脚注
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
 
 % 设置字体
 \usefonttheme{professionalfonts}% 数学公式字体
-\setromanfont{Times New Roman}% 设置 Times New Roman 为默认的英文字体
-\setsansfont{Arial}
-
-% 将强调字体设置为楷书
-\renewcommand*{\em}{\kaishu}% chktex 6
 
 \ProcessOptionsBeamer%
 
@@ -138,7 +137,7 @@
   \vfill
   \begin{center}
     {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}%
-    \smallskip
+    \medskip
 
     {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}%
     \vfill
@@ -208,6 +207,15 @@
 
 \setbeamerfont{subsection in head/foot}{parent=normal text}
 \setbeamercolor{subsection in head/foot}{parent=structure}
+
+% 设置定理区块显示序号
+\setbeamertemplate{theorems}[numbered]
+
+% 设置证明区块
+\addtobeamertemplate{proof begin}{%
+  \setbeamercolor{block title}{fg=white, bg=ucasbeamer@orange}%
+  \setbeamercolor{block body}{fg=black, bg=ucasbeamer@orange!30!white}%
+}{}
 
 % 设置展示块是否有阴影显示
 \setbeamertemplate{blocks}[rounded][shadow=true]

@@ -1,33 +1,24 @@
 % 默认页面大小 4:3
-\documentclass[10pt]{beamer}
+\documentclass[10pt]{ctexbeamer}
 % 页面大小 16:10
-% \documentclass[10pt, aspectratio=1610]{beamer}
+% \documentclass[10pt, aspectratio=1610]{ctexbeamer}
 % 页面大小 16:9
-% \documentclass[10pt, aspectratio=169]{beamer}
+% \documentclass[10pt, aspectratio=169]{ctexbeamer}
 % 页面大小 14:9
-% \documentclass[10pt, aspectratio=149]{beamer}
+% \documentclass[10pt, aspectratio=149]{ctexbeamer}
 % 页面大小 1.41:1
-% \documentclass[10pt, aspectratio=141]{beamer}
+% \documentclass[10pt, aspectratio=141]{ctexbeamer}
 % 页面大小 5:4
-% \documentclass[10pt, aspectratio=54]{beamer}
+% \documentclass[10pt, aspectratio=54]{ctexbeamer}
 % 页面大小 3:2
-% \documentclass[10pt, aspectratio=32]{beamer}
+% \documentclass[10pt, aspectratio=32]{ctexbeamer}
 
 \usetheme[logo=UCAS, sublogo=AMSS]{ucas}
 % logo 的选项: CAS, UCAS
 % sublogo 的选项: AMSS, AMSS2018, UCAS
 
-\usepackage[backend=biber, citestyle=authoryear]{biblatex}
-
-% 具有字形变化的字母编码工具包，若不需要，可注释或删除，
-% \usepackage[T1]{fontenc}
-% 引入 [T1]{fontenc] 工具包在低版本 TeX 编译环境可能因为某些字符，如`~' 导致编译失败，以下命令可解决问题
-% \DeclareTextCommand{\nobreakspace}{T1}{\leavevmode\nobreak\ }
-
-% 用于超文本链接的工具包
-\usepackage{hyperref}
-
-% 引入参考文献列表的 .bib 文件
+% 引入参考文献列表的 .bib 文件, 使用 GB/T 7714-2015 的文献著录规则.
+\usepackage[backend=biber, style=gb7714-2015, citestyle=authoryear]{biblatex}
 \addbibresource{ref.bib}
 
 \title[UCAS Beamer (\LaTeX{})]{中国科学院大学 Beamer (\LaTeX{})}
@@ -92,7 +83,7 @@
   \begin{alertblock}{强调区块}
     \green{绿色}
   \end{alertblock}
-  给文本加脚注\footnote{这个脚注附有链接 \url{https://github.com/icgw/ucas-beamer}}
+  给文本加脚注\footnote{脚注的链接 \url{https://github.com/icgw/ucas-beamer}}
 \end{frame}
 
 % \begin{frame}[t]
@@ -103,7 +94,7 @@
 %   \end{figure}
 % \end{frame}
 
-\subsection[第 3 节缩写标题]{第 3 节主标题}\label{subsec:1-3}
+\subsection[第 3 节缩写标题（虽然是缩写也可以很长长长长长长）]{第 3 节主标题}\label{subsec:1-3}
 
 \begin{frame}[t]
   \frametitle{表格}
@@ -118,22 +109,36 @@
   \end{table}
 \end{frame}
 
-\subsection*{第 4 节缩写标题（不在目录显示）}\label{subsec:1-4}
+\begin{frame}[t]
+  \frametitle{引用}
+  \begin{theorem}[佚名 2020]\label{thm1}
+    \[\text{具体 (Concrete)} = \text{连续 (\alert{Con}tinuous)} + \text{离散 (Dis\alert{crete})}\]
+  \end{theorem}
+  \vfill
+  \begin{proof}
+    证明过程.
+  \end{proof}
+  阅读文献~\autocite{graham1989concrete} 并思考定理~\ref{thm1}.
+  \blfootnote{\printbibliography[heading=none,keyword={concrete}]}
+\end{frame}
+
+\section[第 2 章缩写主标题也可以很长长长长长长长长长]{第二章主标题}\label{sec:2}
+\subsection*{第 4 节缩写标题（不在目录显示）}\label{sec:2-1}
 \makeatletter
 \begin{frame}[t]
   \frametitle{自定义字体大小}
   \begin{center}
     \begin{tabular}{ll}
-      \Huge  $\backslash$Huge                               & \Huge \structure{24.88 pt}     \\
-      \huge  $\backslash$huge                               & \huge \structure{20.74 pt}     \\
-      \LARGE $\backslash$LARGE                              & \LARGE \structure{17.28 pt}    \\
-      \Large $\backslash$Large                              & \Large \structure{14.4 pt}     \\
-      \large $\backslash$large{\songti{宋体}} (小四)        & \large \structure{12 pt}       \\
-      \normalsize $\backslash$normalsize{\heiti{黑体}}      & \normalsize \structure{10 pt}  \\
-      \small $\backslash$small{\fangsong{仿宋}}             & \small \structure{9 pt}        \\
-      \footnotesize $\backslash$footnotesize{\kaishu{楷书}} & \footnotesize \structure{8 pt} \\
-      \scriptsize $\backslash$scriptsize                    & \scriptsize \structure{7 pt}   \\
-      \tiny $\backslash$ting (八号)                         & \tiny \structure{5 pt}
+      \Huge  $\backslash$Huge                & \Huge \structure{24.88 pt}     \\
+      \huge  $\backslash$huge                & \huge \structure{20.74 pt}     \\
+      \LARGE $\backslash$LARGE               & \LARGE \structure{17.28 pt}    \\
+      \Large $\backslash$Large               & \Large \structure{14.4 pt}     \\
+      \large $\backslash$large               & \large \structure{12 pt}       \\
+      \normalsize $\backslash$normalsize     & \normalsize \structure{10 pt}  \\
+      \small $\backslash$small               & \small \structure{9 pt}        \\
+      \footnotesize $\backslash$footnotesize & \footnotesize \structure{8 pt} \\
+      \scriptsize $\backslash$scriptsize     & \scriptsize \structure{7 pt}   \\
+      \tiny $\backslash$tiny                 & \tiny \structure{5 pt}
     \end{tabular}
   \end{center}
 \end{frame}
@@ -147,7 +152,7 @@
 
 \begin{frame}[plain]
   \vfill
-  \centerline{\Huge 谢谢！}
+  \centerline{\Huge 谢谢}
   \vfill
 \end{frame}
 
