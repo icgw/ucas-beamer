@@ -2,9 +2,9 @@
 ![UCAS Beamer][UCAS Beamer Gif]
 
 ## 简介
-* 简洁、优雅、严肃的 Beamer (LaTeX) 中文模板，供中国科学院大学本科生、硕士生、博士生、等科研工作者学习使用。如果你有任何问题，无需犹豫，通过 [E-mail](mailto:icgw@outlook.com) 联系我。
+* 简洁、优雅、严肃的 Beamer (LaTeX) 中文模板，供中国科学院大学本科生、硕士生、博士生、等科研工作者学习使用。如果你有任何疑问，无需犹豫，通过 [E-mail](mailto:icgw@outlook.com) 联系我。
 * 查看 \[[样例](https://github.com/icgw/ucas-beamer/releases/download/v1.2/template-zh.pdf)\] \[[下载](https://github.com/icgw/ucas-beamer/archive/zh-CN.zip)\]
-* 此外，如果你还想使用 PowerPoint 模版请转至 \[[中国科学院大学官方提供的 PowerPoint 模板](UCAS PPT template Page)\] \[[下载](UCAS PPT template download link)\]
+* 此外，如果你想要 PowerPoint 模版，推荐使用 \[[中国科学院大学官方提供的 PowerPoint 模板][UCAS PPT template Page]\] \[[下载][UCAS PPT template download link]\]
 
 ## 安装 TeX Live
 * [官方安装](https://www.tug.org/texlive/)
