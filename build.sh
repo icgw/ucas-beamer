@@ -8,70 +8,56 @@
 set -e
 
 #
-# get file's name
+# 获取 TeX 文件名
 #
 if [[ $# == "1" ]]; then
   fileName=`echo *.tex`
-elif [[ $# == "2" ]]; then
-  fileName=$2
 else
   echo "---------------------------------------------------------------------------"
-  echo "Usage: "$0"  -<l|p|x><x|a|b>  <filename>"
-  echo "TeX engine parameters: <l:lualatex>, <p:pdflatex>, <x:xelatex>"
-  echo "Bib engine parameters: <x:none>, <a:bibtex>, <b:biber>"
+  echo "Usage: "$0" <filename>"
+  echo "TeX engine XeLaTeX"
+  echo "Bib engine Biber"
   echo "---------------------------------------------------------------------------"
   exit
 fi
 fileName=${fileName%".tex"}
 
 #
-# get tex compiler
+# 设置 TeX 编译方式
 #
-if [[ $1 == 'l'* ]]; then
-  texC="lualatex"
-elif [[ $1 == 'p'* ]]; then
-  texC="pdflatex"
-else
-  texC="xelatex"
-fi
+texC="xelatex"
 
 #
-# get bib compiler
+# 设置文献信息编译方式
 #
-if [[ $1 == *'a' ]]; then
-  bibC="bibtex"
-elif [[ $1 == *'b' ]]; then
-  bibC="biber"
-else
-  bibC="biber"
-fi
+bibC="biber"
 
-# set LaTeX environmental variables to add subdirs into search path
-export TEXINPUTS=".//:$TEXINPUTS" # paths to locate .tex 
-export BIBINPUTS=".//:$BIBINPUTS" # paths to locate .bib
-export BSTINPUTS=".//:$BSTINPUTS" # paths to locate .bst
+# 设置 LaTeX 环境变量和搜索路径为当前目录
+export TEXINPUTS=".//:$TEXINPUTS" # *.tex 的路径
+export BIBINPUTS=".//:$BIBINPUTS" # *.bib 的路径
+export BSTINPUTS=".//:$BSTINPUTS" # *.bst 的路径
 
 tmpDir="temp"
 if [[ ! -d ${tmpDir} ]]; then
   mkdir -p ${tmpDir}/
 fi
 
-# build textual content and auxiliary files
+# 编译文本内容和辅助文件
 ${texC} -output-directory=${tmpDir} ${fileName} || exit
 
-# build references and links
+# 编译引用和链接
 if [[ -n ${bibC} ]]; then
-  #- fix the inclusion path for hierarchical auxiliary files
+  # 在辅助文件中添加路径
   sed -i -e "s|\@input{|\@input{${tmpDir}/|g" ${tmpDir}/"$fileName".aux
-  # extract and format bibliography database via auxiliary files
+  # 通过辅助文件抽取文献引用格式
   ${bibC} ${tmpDir}/${fileName} || exit
-  # insert reference indicators into textual content
+  # 插入引用标记到文本内容
   ${texC} -output-directory=${tmpDir} ${fileName} || exit
-  # refine citation references and links
+  # 重新精炼引用和链接
   ${texC} -output-directory=${tmpDir} ${fileName} || exit
 fi
 
-# set PDF viewer
+# 设置 PDF 阅读器
 if [[ `uname` == "Linux" ]]; then
   pdfViwer="xdg-open"
 else

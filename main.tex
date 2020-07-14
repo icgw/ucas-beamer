@@ -18,7 +18,7 @@
 % sublogo 的选项: AMSS, AMSS2018, UCAS
 
 % 引入参考文献列表的 .bib 文件, 使用 GB/T 7714-2015 的文献著录规则.
-\usepackage[backend=biber, style=gb7714-2015, citestyle=authoryear]{biblatex}
+\usepackage[backend=biber, style=gb7714-2015]{biblatex}
 \addbibresource{ref.bib}
 
 \title[UCAS Beamer (\LaTeX{})]{中国科学院大学 Beamer (\LaTeX{})}
@@ -27,7 +27,7 @@
 \institute[AMSS, CAS]{中国科学院数学与系统科学研究院}
 \date[\today]{\today, 中国北京}
 \subject{展示主题}
-\keywords{展示，关键词}
+\keywords{展示, 关键词}
 
 \begin{document}
 
@@ -40,16 +40,16 @@
   \tableofcontents
 \end{frame}
 
-\section[第 1 章缩写标题]{第 1 章主标题}\label{sec:1}
-\subsection[第 1 节缩写标题]{第 1 节主标题}\label{subsec:1-1}
+\section[第 1 章缩写标题]{第 1 章标题}\label{sec:1}
+\subsection[第 1 节缩写标题]{第 1 节标题}\label{subsec:1-1}
 
 \begin{frame}[t]
   \frametitle{幻灯片标题}
   \framesubtitle{幻灯片副标题}
-  平凡格式，\structure{浅灰格式}，\alert{强调格式}
+  平凡格式\quad\structure{浅灰格式}\quad\alert{强调格式}
   \begin{itemize}
     \item 第一级文本内容
-    \item 若该行文本内容十分长长长长长长长长长，则会被强制换行，
+    \item 若该行文本内容十分长长长长长长长长长则会被强制换行
       这里也可以包含\alert{需要强调的文本}
       \begin{itemize}
         \item 第二级文本内容
@@ -69,13 +69,13 @@
   \end{enumerate}
 \end{frame}
 
-\subsection[第 2 节缩写标题]{第 2 节主标题}\label{subsec:1-2}
+\subsection[第 2 节缩写标题]{第 2 节标题}\label{subsec:1-2}
 
 \begin{frame}[t]
   \frametitle{文本区块}
   将文本放入区块内
   \begin{block}{普通区块}
-    引用 \autocite{guowei2019ucasbeamer} 提供的模板
+    见 \citeauthor{guowei2019ucasbeamer}(\citeyear{guowei2019ucasbeamer}) 提供的模板
   \end{block}
   \begin{exampleblock}{示例区块}
     \red{红色}
@@ -83,7 +83,7 @@
   \begin{alertblock}{强调区块}
     \green{绿色}
   \end{alertblock}
-  给文本加脚注\footnote{脚注的链接 \url{https://github.com/icgw/ucas-beamer}}
+  脚注\footnote{\url{https://github.com/icgw/ucas-beamer}}
 \end{frame}
 
 % \begin{frame}[t]
@@ -94,7 +94,7 @@
 %   \end{figure}
 % \end{frame}
 
-\subsection[第 3 节缩写标题（虽然是缩写也可以很长长长长长长）]{第 3 节主标题}\label{subsec:1-3}
+\subsection[第 3 节缩写标题（虽然是缩写也可以很长长长长长长）]{第 3 节标题}\label{subsec:1-3}
 
 \begin{frame}[t]
   \frametitle{表格}
@@ -111,19 +111,19 @@
 
 \begin{frame}[t]
   \frametitle{引用}
-  \begin{theorem}[佚名 2020]\label{thm1}
-    \[\text{具体 (Concrete)} = \text{连续 (\alert{Con}tinuous)} + \text{离散 (Dis\alert{crete})}\]
+  \begin{theorem}[\citeauthor{graham1989concrete}\citeyear{graham1989concrete}]\label{thm1}
+    \[\textbf{具体 (\red{Concrete})} = \textbf{连续 (\red{Con}tinuous)} + \textbf{离散 (Dis\red{crete})}\]
   \end{theorem}
   \vfill
   \begin{proof}
     证明过程.
   \end{proof}
-  阅读文献~\autocite{graham1989concrete} 并思考定理~\ref{thm1}.
+  引用定理~\ref{thm1}.
   \blfootnote{\printbibliography[heading=none,keyword={concrete}]}
 \end{frame}
 
-\section[第 2 章缩写主标题也可以很长长长长长长长长长]{第二章主标题}\label{sec:2}
-\subsection*{第 4 节缩写标题（不在目录显示）}\label{sec:2-1}
+\section[第 2 章缩写标题也可以很长长长长长长长长长]{第二章标题}\label{sec:2}
+\subsection*{第 4 节缩写标题 (不在目录显示)}\label{sec:2-1}
 \makeatletter
 \begin{frame}[t]
   \frametitle{自定义字体大小}
